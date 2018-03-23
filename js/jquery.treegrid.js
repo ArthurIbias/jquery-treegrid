@@ -506,23 +506,27 @@
             return $this;
         },
         /**
+         * Sort nodes by ID
+         *
+         * @returns {Node}
+         */
+        sort: function () {
+            return $(this).treegrid('getAllNodes').each(function () {
+                if (parseInt($(this).treegrid('getNodeId')) > parseInt($(this).next().treegrid('getNodeId'))) {
+                    $(this).next().after($(this)).treegrid('sort');
+                }
+            });
+        },
+        /**
          * Reorder nodes by ID
          *
          * @returns {Node}
          */
         reorder: function () {
-            return $(this).treegrid('getAllNodes').each(function () {
-                var $this = $(this);
-                // if is node
-                if ($this.treegrid('isNode')) {
-                    if ($this.next().treegrid('getNodeId') === null || $this.treegrid('getNodeId') < $this.next().treegrid('getNodeId')) {
-                        $($this.treegrid('getParentNode')).next().after($this);
-                    } else {
-                        $($this.treegrid('getParentNode')).after($this);
-                    }
-                }
+            return $(this).treegrid('sort').treegrid('getAllNodes').each(function () {
+                $(this).after($(this).treegrid('getChildNodes'));
             });
-        },        
+        },
         /**
          * Rendering node
          *
