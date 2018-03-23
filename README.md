@@ -1,7 +1,7 @@
 TreeGrid plugin for jQuery
 ==========
 
-See more information at http://maxazan.github.io/jquery-treegrid
+See more information at [forked from] http://maxazan.github.io/jquery-treegrid
 
 ## Installation
 
@@ -18,4 +18,4 @@ bower install jquery-treegrid
 
 ### From source
 
-Download [source](https://github.com/maxazan/jquery-treegrid/archive/master.zip) from github.com
+Download [source](https://github.com/ArthurIbias/jquery-treegrid/archive/master.zip) from github.com
