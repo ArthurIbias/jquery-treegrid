@@ -506,6 +506,24 @@
             return $this;
         },
         /**
+         * Reorder nodes by ID
+         *
+         * @returns {Node}
+         */
+        reorder: function () {
+            return $(this).treegrid('getAllNodes').each(function () {
+                var $this = $(this);
+                // if is node
+                if ($this.treegrid('isNode')) {
+                    if ($this.next().treegrid('getNodeId') === null || $this.treegrid('getNodeId') < $this.next().treegrid('getNodeId')) {
+                        $($this.treegrid('getParentNode')).next().after($this);
+                    } else {
+                        $($this.treegrid('getParentNode')).after($this);
+                    }
+                }
+            });
+        },        
+        /**
          * Rendering node
          *
          * @returns {Node}
