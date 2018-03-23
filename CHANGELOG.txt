@@ -1,3 +1,6 @@
+== 0.3.0 - 23 March 2018
+* Add reorder method
+
 == 0.3.0 - 03 February 2015
 * Perfomance optimization
 * Bootstrap 3 update
